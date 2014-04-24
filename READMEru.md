@@ -31,6 +31,11 @@ $wot->add('msk.1gs.ru');
 ```php
 $wotList = $wot->get();
 ```
+Или все тоже самое одной строкой:
+```php
+$wotList = (new Wot($key, $domains))->add('www.1gs.ru')->add('msk.1gs.ru')->get();
+```
+
 Переменная `$wotList` является объектом класса `WotList`, но обладает всеми свойствами php-массива.
 ```php
 echo count( $wotList ); // get list size
@@ -51,12 +56,14 @@ $wotObj->lang = 'ru';              // set url language (default English)
 $wotObj->url();                    // url to WOT domin page
 
 $wotObj->trustWorthiness();
+$wotObj->trustWorthiness()->reputation();
 $wotObj->trustWorthiness()->confidence();
 $wotObj->trustWorthiness()->ico();
 $wotObj->trustWorthiness()->description();
 $wotObj->trustWorthiness()->icoIndex();
 
 $wotObj->childSafety();
+$wotObj->childSafety()->reputation();
 $wotObj->childSafety()->confidence();
 $wotObj->childSafety()->ico();
 $wotObj->childSafety()->description();

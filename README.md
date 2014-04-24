@@ -32,6 +32,10 @@ Get a list of results:
 ```php
 $wotList = $wot->get();
 ```
+Or all the same by single line:
+```php
+$wotList = (new Wot($key, $domains))->add('www.1gs.ru')->add('msk.1gs.ru')->get();
+```
 The variable `$wotList` is a object of class `WotList`, but has all the features of a php array.
 ```php
 echo count( $wotList ); // get list size
@@ -52,12 +56,14 @@ $wotObj->lang = 'ru';              // set url language (default English)
 $wotObj->url();                    // url to WOT domin page
 
 $wotObj->trustWorthiness();
+$wotObj->trustWorthiness()->reputation();
 $wotObj->trustWorthiness()->confidence();
 $wotObj->trustWorthiness()->ico();
 $wotObj->trustWorthiness()->description();
 $wotObj->trustWorthiness()->icoIndex();
 
 $wotObj->childSafety();
+$wotObj->childSafety()->reputation();
 $wotObj->childSafety()->confidence();
 $wotObj->childSafety()->ico();
 $wotObj->childSafety()->description();
