@@ -5,7 +5,6 @@
   *  In addition to reputations, the rating system also computes categories for websites based on votes from users and third parties.
   *  Category data aims to explain the reason behind a poor reputation,
   *  and you can use the information to more specifically determine what type of action to take when coming across a poorly rated site.
-  *  The current categories are as follows:
   *  
   *  For each category, the reputation system also computes a confidence value c ∊ {0, ..., 100},
   *  similarly to reputations. The higher the value, the more reliable the category assignment can be considered.

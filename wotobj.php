@@ -1,5 +1,16 @@
 <?php
+/**
+  *   Web of Trust (WOT) API PHP - wrapper
+  *   License BSD
+  *   Вы можете делать с моим кодом что угодно, но я ни за что ответственности не несу. Используйте на свой страх и риск.
+  *   You can do anything with my code, but I'm for anything not responsible. Use at your own risk.
+  *   Copyright (c) 2014, Valeriy Dmitriev aka Valmat
+  *   @github:  https://github.com/valmat/WotApi
+  *   Sponsored by 1gs.ru
+  */
 
+  
+  
 /**
  * This class is used to obtain information about reputation and confidence
  * class WotReputation
