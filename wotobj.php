@@ -167,6 +167,13 @@ class WotCategory
     }
     
     /**
+     * @return string group
+     */
+    public function groupNom() {
+        return WotDescriptions::init()->groupNom($this->cat);
+    }
+    
+    /**
      * @return string descriptions
      */
     public function description() {
@@ -360,6 +367,14 @@ class WotObj implements IteratorAggregate
     }
         
     /**
+      *  this obhect has categories?
+      *  @return bool
+      */
+    public function hasCategories() {
+        return isset($this->arr->categories);
+    }
+        
+    /**
       *  categories iterator 
       *  @return Iterator
       */
@@ -476,11 +491,17 @@ class Wot
         
     /**
      * get WotList
+     * @return string json
+     */
+    public function json() {
+        return file_get_contents ( 'http://api.mywot.com/0.4/public_link_json2?hosts=' . $this->_domains . '/&key=' . $this->_api );
+    }
+        
+    /**
+     * get WotList
      * @return WotList this
      */
     public function get() {
-        //return new WotList('{ "ya.ru": { "target": "ya.ru", "0": [ 94, 59 ], "1": [ 94, 59 ], "2": [ 94, 59 ], "4": [ 91, 51 ], "categories": { "501": 98, "304": 4 } }, "google.com": { "target": "google.com", "0": [ 94, 81 ], "1": [ 94, 81 ], "2": [ 94, 81 ], "4": [ 93, 72 ], "categories": { "501": 97, "301": 14 } }, "er.ru": { "target": "er.ru", "0": [ 20, 25 ], "1": [ 20, 25 ], "2": [ 20, 25 ], "4": [ 20, 21 ], "categories": { "102": 20, "104": 14, "303": 13, "204": 13, "201": 12 } }, "crawler.sistrix.net": { "target": "crawler.sistrix.net", "0": [ 9, 12 ], "1": [ 9, 12 ], "2": [ 9, 12 ], "4": [ 8, 10 ], "categories": { "101": 25 } }, "aktau-zan.com": { "target": "aktau-zan.com", "0": [ 26, 8 ], "1": [ 26, 8 ], "2": [ 26, 8 ], "categories": { "101": 4 }, "blacklists": { "malware": 1391655180 } } }');
-        
         $url = 'http://api.mywot.com/0.4/public_link_json2?hosts=' . $this->_domains . '/&key=' . $this->_api;
         $json = file_get_contents ( $url);
         return $json ? ( new WotList($json) ) : ( new WotList('{}') );

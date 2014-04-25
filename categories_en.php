@@ -44,6 +44,14 @@ class WotDescriptions
     
     /**
      * @param int category
+     * @return int group nomber
+     */
+    public function groupNom($cat) {
+        return isset( $this->_category_group[$cat]) ? $this->_category_group[$cat] : NULL;
+    }
+    
+    /**
+     * @param int category
      * @return string descriptions
      */
     public function description($cat) {
